@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Running Plan Generator</title>
+    <style>
+        body { font-family: Arial; margin: 50px; background: #f0f8ff; }
+        h1 { color: #2e8b57; }
+        input, select { padding: 10px; margin: 10px; font-size: 16px; }
+        button { padding: 15px 30px; background: #2e8b57; color: white; border: none; font-size: 18px; }
+    </style>
+</head>
+<body>
+    <h1>Hey runner! Let’s make your plan</h1>
+    <form action="/generate" method="post">
+        <p>Your name: <input type="text" name="name" required></p>
+        <p>How many weeks until your race? <input type="number" name="weeks" min="1" max="20" required></p>
+        <p>How many days can you run per week?
+            <select name="days">
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </p>
+        <p>Your current level:
+            <select name="level">
+                <option value="beginner">Beginner (under 15 miles/week)</option>
+                <option value="intermediate">Intermediate (15-30 miles/week)</option>
+                <option value="advanced">Advanced (30+ miles/week)</option>
+            </select>
+        </p>
+        <button type="submit">Generate My Plan!</button>
+    </form>
+</body>
+</html>

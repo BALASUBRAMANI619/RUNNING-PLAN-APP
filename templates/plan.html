@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Plan, {{ name }}!</title>
+    <style>
+        body { font-family: Arial; margin: 50px; background: #f0f8ff; }
+        table { width: 80%; border-collapse: collapse; margin-top: 30px; }
+        th, td { padding: 15px; border: 1px solid #ccc; text-align: center; }
+        th { background: #2e8b57; color: white; }
+    </style>
+</head>
+<body>
+    <h1>Congrats {{ name }}! Here’s your training plan</h1>
+    <table>
+        <tr>
+            <th>Week</th>
+            <th>Total Miles</th>
+            <th>Runs per week</th>
+            <th>Miles per run (approx)</th>
+        </tr>
+        {% for week in plan %}
+        <tr>
+            <td>Week {{ week.week }}</td>
+            <td>{{ week.total_miles }}</td>
+            <td>{{ week.days }}</td>
+            <td>{{ week.per_run }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p><a href="/">Make another plan</a></p>
+</body>
+</html>
