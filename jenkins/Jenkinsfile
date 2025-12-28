@@ -36,12 +36,6 @@ pipeline {
                 '''
             }
         }
-
-        stage('docker_running_status'){
-            steps{
-                
-            }
-        }
     }
 
     post{
