@@ -88,6 +88,8 @@ Run updated container
 Verify running containers
 
 📂 Project Structure
+
+
 <img width="146" height="123" alt="image" src="https://github.com/user-attachments/assets/cdf600de-db7e-48af-910e-956910181c87" />
 
 
