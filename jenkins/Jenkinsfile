@@ -8,7 +8,7 @@ pipeline {
     stages{
 
         stage('check_out'){
-            step{
+            steps{
                 git branch: 'main',
                     url: 'https://github.com/BALASUBRAMANI619/RUNNING-PLAN-APP.git'
             }
