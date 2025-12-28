@@ -2,20 +2,22 @@ pipeline {
     agent any
 
     environment {
-        $IMAGE_NAME = "running-app-new"
-        $CONTAINER_NAME = "running-app"
+        IMAGE_NAME = "running-app-new"
+        CONTAINER_NAME = "running-app"
     }
     stages{
 
         stage('check_out'){
+            step{
             git branch: 'main',
                     url: 'https://github.com/your-org/running-plan-app.git'
+            }
         }
 
         stage('build-image'){
             steps{
                 sh '''
-                    docker build -t $IMAGE_NAME
+                    docker build -t $IMAGE_NAME .
                 '''
             }
         }
@@ -44,10 +46,10 @@ pipeline {
 
     post{
         success{
-            echo "Successfull"
+            echo "✅ Deployment successful"
         }
         failure{
-            echo "Failure"
+            echo "❌ Deployment failed"
         }
     }
 }
