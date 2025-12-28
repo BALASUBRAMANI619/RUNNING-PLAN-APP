@@ -1,8 +1,53 @@
 pipeline {
     agent any
+
+    environment {
+        $IMAGE_NAME = "running-app-new"
+        $CONTAINER_NAME = "running-app"
+    }
     stages{
-        stage('build'){
-            echo "Hello world"
+
+        stage('check_out'){
+            git branch: 'main',
+                    url: 'https://github.com/your-org/running-plan-app.git'
+        }
+
+        stage('build-image'){
+            steps{
+                sh '''
+                    docker build -t $IMAGE_NAME
+                '''
+            }
+        }
+        stage('Stop Old Container') {
+            steps {
+                sh '''
+                docker rm -f $CONTAINER_NAME || true
+                '''
+            }
+        }
+
+        stage('run_container'){
+            steps{
+                sh '''
+                docker run -d -p 5000:5000 --name $CONTAINER_NAME $IMAGE_NAME
+                '''
+            }
+        }
+
+        stage('docker_running_status'){
+            steps{
+                
+            }
+        }
+    }
+
+    post{
+        success{
+            echo "Successfull"
+        }
+        failure{
+            echo "Failure"
         }
     }
 }
