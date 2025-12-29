@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        Image_name = running_image
-        Container_name = running_container
+        Image_name = "running_image"
+        Container_name = "running_container"
     }
 
     Stages{
