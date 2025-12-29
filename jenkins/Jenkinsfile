@@ -2,11 +2,11 @@ pipeline {
     agent any
 
     environment {
-        Image_name = "running_image"
-        Container_name = "running_container"
+        IMAGE_NAME = "running_image"
+        CONTAINER_NAME = "running_container"
     }
 
-    Stages{
+    stages{
 
         stage('check_out'){
             steps{
@@ -18,21 +18,21 @@ pipeline {
         stage('build_image'){
             steps{
                 sh '''
-                    docker build -t $Image_name .
+                    docker build -t $IMAGE_NAME .
                 '''
             }
         }
 
         stage('remove_old_container'){
             steps{
-                sh ''' docker rm -f $Container_name || true
+                sh ''' docker rm -f $CONTAINER_NAME || true
                 '''
             }
         }
 
         stage('run_container'){
             steps{
-                sh ''' docker run -d -p 5000:5000 --name $Container_name $Image_name
+                sh ''' docker run -d -p 5000:5000 --name $CONTAINER_NAME $IMAGE_NAME
                 '''
             }
         }
