@@ -2,10 +2,11 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "running-app-new"
-        CONTAINER_NAME = "running-app"
+        Image_name = running_image
+        Container_name = running_container
     }
-    stages{
+
+    Stages{
 
         stage('check_out'){
             steps{
@@ -14,31 +15,29 @@ pipeline {
             }
         }
 
-        stage('build-image'){
+        stage('build_image'){
             steps{
                 sh '''
-                    docker build -t $IMAGE_NAME .
+                    docker build -t $Image_name .
                 '''
             }
         }
-        stage('Stop Old Container') {
-            steps {
-                sh '''
-                docker rm -f $CONTAINER_NAME || true
+
+        stage('remove_old_container'){
+            steps{
+                sh ''' docker rm -f $Container_name || true
                 '''
             }
         }
 
         stage('run_container'){
             steps{
-                sh '''
-                docker run -d -p 5000:5000 --name $CONTAINER_NAME $IMAGE_NAME
+                sh ''' docker run -d -p 5000:5000 --name $Container_name $Image_name
                 '''
             }
         }
     }
-
-    post{
+    post {
         success{
             echo "✅ Deployment successful"
         }
