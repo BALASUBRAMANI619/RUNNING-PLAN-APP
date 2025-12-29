@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Your Plan, {{ name }}!</title>
-    <style>
-        body { font-family: Arial; margin: 50px; background: #f0f8ff; }
-        table { width: 80%; border-collapse: collapse; margin-top: 30px; }
-        th, td { padding: 15px; border: 1px solid #ccc; text-align: center; }
-        th { background: #2e8b57; color: white; }
-    </style>
+    <title>{% block title %}Running Plan App{% endblock %}</title>
+    {% include 'bootstrap.html' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    
+    {% include 'header.html' %}
     <h1>Congrats {{ name }}! Here’s your training plan</h1>
     <table>
         <tr>
@@ -28,5 +26,7 @@
         {% endfor %}
     </table>
     <p><a href="/">Make another plan</a></p>
+
+    {% include 'footer.html' %}
 </body>
 </html>

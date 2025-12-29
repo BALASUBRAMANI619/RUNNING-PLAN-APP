@@ -1,0 +1,73 @@
+<head>
+    <title>{% block title %}Running Plan App{% endblock %}</title>
+    {% include 'bootstrap.html' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% include 'header.html' %}
+<div class="card shadow-sm p-4 mt-4">
+
+    <h2 class="mb-3">🏃 About Running Plan App</h2>
+
+    <p>
+        The <strong>Running Plan App</strong> is a web-based application designed to help runners
+        create personalized training plans based on their experience level, weekly availability,
+        and race timeline.
+    </p>
+
+    <p>
+        Whether you are a beginner preparing for your first race or an experienced runner
+        working toward performance goals, this app provides structured and flexible plans
+        to support consistent and safe training.
+    </p>
+
+    <hr>
+
+    <h4>🎯 What This App Does</h4>
+    <ul>
+        <li>Generates customized running plans</li>
+        <li>Adapts to different fitness levels</li>
+        <li>Simple and user-friendly interface</li>
+        <li>Designed for scalability and future enhancements</li>
+    </ul>
+
+    <hr>
+
+    <h4>⚙️ How It’s Built</h4>
+    <p>This project demonstrates modern software development and DevOps practices:</p>
+
+    <ul>
+        <li><strong>Python & Flask</strong> – application logic and backend</li>
+        <li><strong>Bootstrap</strong> – responsive and clean UI</li>
+        <li><strong>Docker</strong> – containerized deployment</li>
+        <li><strong>Jenkins</strong> – CI/CD automation</li>
+        <li><strong>GitHub</strong> – version control and collaboration</li>
+    </ul>
+
+    <p>
+        Every code change pushed to GitHub is automatically built and deployed using Jenkins,
+        ensuring a reliable and repeatable deployment pipeline.
+    </p>
+
+    <hr>
+
+    <h4>🚀 Purpose of the Project</h4>
+    <p>
+        This application was built as a hands-on learning project to gain real-world experience
+        with CI/CD pipelines, containerization, and DevOps workflows while maintaining
+        clean and scalable application structure.
+    </p>
+
+    <hr>
+
+    <h4>👨‍💻 About the Developer</h4>
+    <p>
+        Developed by <strong>Balasubramani Vembu</strong>, a passionate learner focused on
+        DevOps, cloud technologies, and automation.
+        This project reflects a commitment to building production-ready applications
+        using modern tools and best practices.
+    </p>
+
+</div>
+{% include 'footer.html' %}  
+</body>

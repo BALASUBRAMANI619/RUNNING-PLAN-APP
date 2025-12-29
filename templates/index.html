@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Running Plan Generator</title>
-    <style>
-        body { font-family: Arial; margin: 50px; background: #f0f8ff; }
-        h1 { color: #2e8b57; }
-        input, select { padding: 10px; margin: 10px; font-size: 16px; }
-        button { padding: 15px 30px; background: #2e8b57; color: white; border: none; font-size: 18px; }
-    </style>
+    <title>{% block title %}Running Plan App{% endblock %}</title>
+    {% include 'bootstrap.html' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    {% include 'header.html' %}
     <h1>Hey runner! Let’s make your plan</h1>
     <form action="/generate" method="post">
         <p>Your name: <input type="text" name="name" required></p>
@@ -30,5 +27,6 @@
         </p>
         <button type="submit">Generate My Plan!</button>
     </form>
+    {% include 'footer.html' %}  
 </body>
 </html>
