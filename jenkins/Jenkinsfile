@@ -41,7 +41,7 @@ pipeline {
             }
             steps{
                 sh ''' docker run -d -p 5000:5000 \
-                    --name $CONTAINER_NAME
+                    --name $CONTAINER_NAME \
                     -e FLASK_SECRET_KEY=$FLASK_SECRET_KEY \
                     -e MYSQL_HOST=$MYSQL_HOST \
                     -e MYSQL_USER=$MYSQL_USER \
