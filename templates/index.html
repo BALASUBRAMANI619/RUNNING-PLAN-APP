@@ -1,32 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %}Running Plan App{% endblock %}</title>
+    <title>Home | Running Plan App</title>
     {% include 'bootstrap.html' %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    {% include 'header.html' %}
-    <h1>Hey runner! Let’s make your plan</h1>
-    <form action="/generate" method="post">
-        <p>Your name: <input type="text" name="name" required></p>
-        <p>How many weeks until your race? <input type="number" name="weeks" min="1" max="20" required></p>
-        <p>How many days can you run per week?
-            <select name="days">
+
+{% include 'header.html' %}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Create Your Training Plan</h2>
+
+    <form action="/generate" method="post" class="row g-3">
+
+        <div class="col-md-6">
+            <label class="form-label">Your Name</label>
+            <input type="text" name="name" class="form-control" value="{{ session['username'] }}"
+        readonly>
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Weeks Until Race</label>
+            <input type="number" name="weeks" min="1" max="20" class="form-control" required>
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Runs per Week</label>
+            <select name="days" class="form-select">
                 <option>3</option>
                 <option>4</option>
                 <option>5</option>
             </select>
-        </p>
-        <p>Your current level:
-            <select name="level">
-                <option value="beginner">Beginner (under 15 miles/week)</option>
-                <option value="intermediate">Intermediate (15-30 miles/week)</option>
-                <option value="advanced">Advanced (30+ miles/week)</option>
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Experience Level</label>
+            <select name="level" class="form-select">
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
             </select>
-        </p>
-        <button type="submit">Generate My Plan!</button>
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary mt-3">
+                Generate Plan
+            </button>
+        </div>
+
     </form>
-    {% include 'footer.html' %}  
+</div>
+
 </body>
 </html>

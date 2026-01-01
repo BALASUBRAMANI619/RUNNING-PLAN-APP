@@ -1,40 +1,107 @@
+/* Base reset */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f9fafb;
+    color: #1f2937;
+    line-height: 1.6;
 }
 
 /* Header */
 .header {
-    background-color: #1f2937;
-    color: white;
-    padding: 15px 20px;
+    background-color: #111827; /* darker, classic */
+    color: #ffffff;
+    padding: 16px 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.header h1 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
 .header nav a {
-    color: white;
-    margin-left: 15px;
+    color: #e5e7eb;
+    margin-left: 20px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
+    font-size: 14px;
 }
 
 .header nav a:hover {
+    color: #ffffff;
     text-decoration: underline;
 }
 
 /* Main content */
 .content {
-    padding: 40px;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 48px 24px;
     min-height: 70vh;
+    background-color: #ffffff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Forms */
+form {
+    margin-top: 24px;
+}
+
+form p {
+    margin-bottom: 16px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #2563eb;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1e40af;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 24px;
+}
+
+th, td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+}
+
+th {
+    background-color: #f3f4f6;
+    font-weight: 600;
 }
 
 /* Footer */
 .footer {
     background-color: #f3f4f6;
     text-align: center;
-    padding: 10px;
-    font-size: 14px;
-    color: #555;
+    padding: 14px;
+    font-size: 13px;
+    color: #6b7280;
 }

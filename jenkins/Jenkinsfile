@@ -31,8 +31,23 @@ pipeline {
         }
 
         stage('run_container'){
+            environment {
+                FLASK_SECRET_KEY = credentials('FLASK_SECRET_KEY')
+                MYSQL_HOST       = credentials('MYSQL_HOST')
+                MYSQL_USER       = credentials('MYSQL_USER')
+                MYSQL_PASSWORD   = credentials('MYSQL_PASSWORD')
+                MYSQL_DB         = credentials('MYSQL_DB')
+                
+            }
             steps{
-                sh ''' docker run -d -p 5000:5000 --name $CONTAINER_NAME $IMAGE_NAME
+                sh ''' docker run -d -p 5000:5000 \
+                    --name $CONTAINER_NAME
+                    -e FLASK_SECRET_KEY=$FLASK_SECRET_KEY \
+                    -e MYSQL_HOST=$MYSQL_HOST \
+                    -e MYSQL_USER=$MYSQL_USER \
+                    -e MYSQL_PASSWORD=$MYSQL_PASSWORD \
+                    -e MYSQL_DB=$MYSQL_DB \
+                 $IMAGE_NAME
                 '''
             }
         }

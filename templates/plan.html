@@ -1,32 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %}Running Plan App{% endblock %}</title>
+    <title>Plan | Running Plan App</title>
     {% include 'bootstrap.html' %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    
-    {% include 'header.html' %}
-    <h1>Congrats {{ name }}! Here’s your training plan</h1>
-    <table>
-        <tr>
-            <th>Week</th>
-            <th>Total Miles</th>
-            <th>Runs per week</th>
-            <th>Miles per run (approx)</th>
-        </tr>
-        {% for week in plan %}
-        <tr>
-            <td>Week {{ week.week }}</td>
-            <td>{{ week.total_miles }}</td>
-            <td>{{ week.days }}</td>
-            <td>{{ week.per_run }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    <p><a href="/">Make another plan</a></p>
 
-    {% include 'footer.html' %}
+{% include 'header.html' %}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Congrats {{ name }}! Your Training Plan</h2>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Week</th>
+                    <th>Total Miles</th>
+                    <th>Runs per Week</th>
+                    <th>Miles per Run</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for week in plan %}
+                <tr>
+                    <td>Week {{ week.week }}</td>
+                    <td>{{ week.total_miles }}</td>
+                    <td>{{ week.days }}</td>
+                    <td>{{ week.per_run }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <a href="/" class="btn btn-secondary mt-3">Create Another Plan</a>
+</div>
+
 </body>
 </html>
